@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <h1 id="userId"></h1>
+        <input id="toUser" placeholder="To">
+        <input id="message" placeholder="message">
+        <button id="sendBtn">Send</button>
+    </div>
+    <div>
+        <h2>Users</h2>
+        <ul id="user-list"></ul>
+    </div>
+    <script>
+        let ws
+        function genRandNum() {
+            return Math.ceil(Math.random() * 10000)
+        }
+        function sendId() {
+            const unixStr = String(Date.now())
+            const randNum = genRandNum()
+
+            return `${unixStr}-${randNum}`
+        }
+        let userId = ""
+        function doLogin(user) {
+            const loginReq = {
+                seq: sendId(),
+                cmd: "login",
+                data: { userId: user }
+            }
+            ws.send(JSON.stringify(loginReq))
+        }
+        function removeAllChildren(p) {
+            while (p.firstChild) {
+                p.removeChild(p.firstChild)
+            }
+        }
+        
+        function updateUserList() {
+            fetch('http://localhost:8080/user/list').then(resp => resp.json()).then(users => {
+                const userList = document.getElementById('user-list')
+                const userItems = users.map(user => {
+                    const item = document.createElement('li')
+                    item.textContent = user
+                    item.addEventListener('click', e => {
+                        const userInput = document.getElementById('toUser')
+                        userInput.value = e.target.textContent
+
+                    })
+
+                    return item
+                })
+                removeAllChildren(userList)
+                userList.append(...userItems)
+            })
+        }
+
+        function start() {
+            ws = new WebSocket("ws://127.0.0.1:8080/ws")
+            let updateUserListItvl
+
+            ws.onopen = function (evt) {
+                console.log("Login ...")
+
+                while (!userId) {
+                    userId = prompt("Your name:", "User-" + genRandNum())
+                }
+                doLogin(userId)
+                document.getElementById("userId").textContent = `Hello, ${userId}`
+
+                updateUserList()
+                updateUserListItvl = setInterval(updateUserList, 30000)
+            }
+            ws.onclose = () => {
+                console.log("Closing ...")
+                setTimeout(start, 5000)
+                clearInterval(updateUserListItvl)
+            }
+            ws.onmessage = (e) => {
+                console.log("Received:", e.data)
+            }
+        }
+
+        start()
+        
+
+        const sendBtn = document.getElementById('sendBtn')
+        sendBtn.addEventListener('click', e => {
+            const userInput = document.getElementById('toUser')
+            const msgInput = document.getElementById('message')
+
+            const sendMsg = {
+                seq: sendId(),
+                cmd: "send",
+                data: {
+                    userId: userInput.value,
+                    content: msgInput.value
+                }
+            }
+            ws.send(JSON.stringify(sendMsg))
+        })
+    </script>
+</body>
+
+</html>

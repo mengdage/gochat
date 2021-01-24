@@ -1,0 +1,11 @@
+app:
+  log_file: log/gin.log
+  http_port: 8080
+  rpc_port: 8082
+
+redis:
+  addr: localhost:6379
+  password: ""
+  db: 0
+  poolsize: 5
+  min_idle_conns: 5
