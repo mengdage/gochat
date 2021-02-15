@@ -24,3 +24,5 @@ yarn-error.log*
 
 # log
 /server/log/*.log
+
+dump.rdb
