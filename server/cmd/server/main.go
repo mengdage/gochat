@@ -89,7 +89,9 @@ func initLog() {
 	if err != nil {
 		panic(fmt.Errorf("Failed to create logFile %s: %s", logFilePath, err.Error()))
 	}
+
 	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+	log.SetOutput(gin.DefaultWriter)
 }
 
 func createPGPool() (*pgxpool.Pool, error) {
