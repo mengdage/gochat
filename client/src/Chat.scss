@@ -1,4 +1,10 @@
 .chat-container {
+  max-width: 800px;
+  height: 600px;
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid #d3d3d3;
+  border-radius: 5px;
   .chat-conversation {
     border-left: 2px solid #d3d3d3;
     display: flex;
@@ -7,5 +13,4 @@
   }
 
   display: flex;
-  height: 100%;
 }

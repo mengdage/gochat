@@ -1,0 +1,31 @@
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 0 auto;
+    padding-top: 10px;
+    .register-title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .register-row {
+        margin-top: 10px;
+    }
+    .register-input {
+        border-radius: 0;
+        padding: 15px 20px;
+        width: 100%;
+
+    }
+
+    .register-submit {
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: #2979FF;
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+    }
+}
