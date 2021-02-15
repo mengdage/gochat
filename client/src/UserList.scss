@@ -1,0 +1,25 @@
+.userlist-container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 8px;
+  height: 100%;
+  flex: 0 0 240px;
+
+  .userlist-list {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow-y: auto;
+
+    .userlist-item {
+      &:hover {
+        cursor: pointer;
+        background-color: lightgrey;
+      }
+      &.selected {
+        color: white;
+        background-color: grey;
+      }
+      padding: 8px;
+    }
+  }
+}

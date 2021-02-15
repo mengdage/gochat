@@ -1,0 +1,19 @@
+.App {
+  max-width: 800px;
+  height: 600px;
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid #d3d3d3;
+  border-radius: 5px;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}

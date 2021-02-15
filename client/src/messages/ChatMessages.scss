@@ -1,0 +1,6 @@
+.chatmessage-container {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 1px;
+    overflow-y: auto;
+}

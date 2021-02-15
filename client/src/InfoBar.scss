@@ -1,0 +1,15 @@
+.infobar-container {
+  align-items: center;
+  color: white;
+  display: flex;
+  background: #2979ff;
+  height: 60px;
+  justify-content: space-between;
+  padding: 0 8px;
+  width: 100%;
+  .infobar-touser {
+  }
+  .infobar-extra-info {
+      font-size: 0.7rem;
+  }
+}

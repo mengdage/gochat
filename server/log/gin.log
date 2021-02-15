@@ -1,0 +1,16 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /register                 --> githum.com/mengdage/gochat/pkg/app.(*Server).CreateUser.func1 (4 handlers)
+[GIN-debug] POST   /login                    --> githum.com/mengdage/gochat/pkg/app.(*Server).LoginUser.func1 (4 handlers)
+[GIN-debug] GET    /user/list                --> githum.com/mengdage/gochat/pkg/app.(*Server).ListAllUsers.func1 (5 handlers)
+[GIN-debug] GET    /user/conversation_history/:id --> githum.com/mengdage/gochat/pkg/app.(*Server).GetConversationHistory.func1 (5 handlers)
+[GIN-debug] GET    /ws                       --> githum.com/mengdage/gochat/pkg/app.(*Server).WSUpgrader.func1 (4 handlers)
+[GIN-debug] Listening and serving HTTP on 0.0.0.0:8081
+[GIN] 2021/02/15 - 15:31:15 | 200 |    3.579766ms |             ::1 | GET      "/ws"
+[GIN] 2021/02/15 - 15:31:39 | 200 |     290.136µs |             ::1 | GET      "/user/conversation_history/meng-05@gmail.com"
+[GIN] 2021/02/15 - 15:31:40 | 200 |    5.743843ms |             ::1 | GET      "/user/conversation_history/john"
+[GIN] 2021/02/15 - 15:31:53 | 200 |     277.868µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:32:53 | 200 |      272.34µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:33:53 | 200 |     268.504µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:34:53 | 200 |     261.364µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:35:53 | 200 |     210.899µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:36:53 | 200 |    4.262218ms |             ::1 | GET      "/u[GIN] 2021[GIN] 2021/02/15 - 15:37:53 | 200 |     774.243µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:38:53 | 200 |      280.26µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:39:53 | 200 |     288.067µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:40:53 | 200 |     247.731µs |             ::1 | GET      "/[GIN] 2021/[GIN] 2021/02/15 - 15:41:53 | 200 |     342.843µs |             ::1 | GET      "/user/list"

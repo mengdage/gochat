@@ -1,0 +1,11 @@
+.chat-container {
+  .chat-conversation {
+    border-left: 2px solid #d3d3d3;
+    display: flex;
+    flex: 1 1 60%;
+    flex-flow: column nowrap;
+  }
+
+  display: flex;
+  height: 100%;
+}

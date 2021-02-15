@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package chatpb;
+
+option go_package = "githum.com/mengdage/gochat/chatpb";
+
+import "google/protobuf/timestamp.proto";
+
+message SendMessageRequest {
+    string sender_id = 1;
+    string receiver_id = 2;
+    string content = 3;
+    string conversation_id = 4;
+    google.protobuf.Timestamp created_at = 5;
+}
+
+message SendMessageResponse {
+    int32 code = 1;
+    string msg = 2;
+}
+
+service ChatService {
+    rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+}

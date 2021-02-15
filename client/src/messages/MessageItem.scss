@@ -1,0 +1,26 @@
+.messageitem-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 4px;
+
+  &.sentbyme {
+    flex-flow: row-reverse;
+  }
+
+  .messageitem-msg {
+    background-color: #f3f3f3;
+    padding: 8px 16px;
+    border-radius: 5px;
+
+    &.sentbyme {
+      color: white;
+      background-color: #2979ff;
+    }
+  }
+
+  .messageitem-fromuser {
+      margin: 4px;
+      font-size: 0.875rem;
+      color: #828282;
+  }
+}

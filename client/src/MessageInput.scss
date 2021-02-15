@@ -1,0 +1,26 @@
+.messageinput-form {
+  display: flex;
+  border-top: 2px solid #d3d3d3;
+}
+
+.messageinput-input {
+  border: none;
+  border-radius: 0;
+  padding: 4px;
+  font-size: 1.2em;
+  flex: 1 1 80%;
+}
+
+.messageinput-send {
+  &.disabled {
+    background-color: lightgrey;
+    color: darkgrey;
+  }
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #2979ff;
+  padding: 20px;
+  border: none;
+  width: 20%;
+}
